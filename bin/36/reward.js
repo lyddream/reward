@@ -7,7 +7,6 @@ const asyncMap = require('async/mapLimit');
 
 const rewardArray = []
 
-
 const excludeArray = [];
 const apiKey = "VnocvyZJ64hOh3StH5fUgelIoAWtUYLu8OKTFL2ItoAzEfmgU8kfmbZAZ6ymCxz8";
 const keyPair = {
@@ -46,7 +45,7 @@ const basicTransfer = {
     token:1,
     feeToken:1,
     maxFeeAmount:"0",
-    validUntil:Number((new Date().getTime() / 1000).toFixed(0)) + 3600 * 24 * 60,
+    validUntil:Math.ceil(new Date().getTime() / 1000) + 3600 * 24 * 60,
     memo:"Withdraw Reward"
 };
 
@@ -116,6 +115,8 @@ async function sendRewards() {
         console.log(`Failed receivers: ${JSON.stringify(fArray)}`);
     });
 }
+
+
 
 (async () => await sendRewards())();
 

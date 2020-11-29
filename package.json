@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "reward31": "node ./bin/rewardByAmount",
-    "reward36": "node ./bin/36/reward.js"
+    "reward36": "node ./bin/36/reward.js",
+    "recoverAmm": "node ./bin/recover/ammRecover.js"
   },
   "dependencies": {
     "async": "^3.2.0",

@@ -6,7 +6,7 @@ const config = require('../config');
 const sha256  = require('crypto-js/sha256');
 const ethUtil =  require('ethereumjs-util')
 const BN= require('bn.js')
-import * as sigUtil from 'eth-sig-util';
+const sigUtil = require('eth-sig-util');
 
 const assert = require('assert');
 

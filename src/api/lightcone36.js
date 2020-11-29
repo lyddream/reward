@@ -63,6 +63,7 @@ async function getStorageId(accountId, tokenSId, apiKey) {
         url: '/api/v2/storageId',
         headers: headers,
         params,
+        baseURL:SERVER_URL
     });
 
     return response['data'];
@@ -75,6 +76,7 @@ async function getAmmMarkets() {
         method: 'GET',
         url: '/api/v2/amm/markets',
         data,
+        baseURL:SERVER_URL
     });
 
     return response['data'];
@@ -87,6 +89,7 @@ async function getAmmSnapshots() {
         method: 'GET',
         url: '/api/v2/amm/snapshots',
         data,
+        baseURL:SERVER_URL
     });
 
     return response['data'];
@@ -101,6 +104,7 @@ async function getAmmSnapshot(poolAddress) {
         method: 'GET',
         url: '/api/v2/amm/snapshot',
         params,
+        baseURL:SERVER_URL
     });
 
     console.log('getAmmSnapshot', response);
@@ -112,6 +116,7 @@ async function getAmmMarketUserFeeRates(accountId, market, apiKey) {
     const params = {
         accountId,
         market,
+        baseURL:SERVER_URL
     };
 
     const headers = {
@@ -123,6 +128,7 @@ async function getAmmMarketUserFeeRates(accountId, market, apiKey) {
         url: '/api/v2/user/feeRates',
         headers,
         params,
+        baseURL:SERVER_URL
     });
 
     // console.log('getAmmMarketUserFeeRates', response);
@@ -159,12 +165,13 @@ async function exitAmmPool(data, ecdsaSig, apiKey) {
         url: '/api/v2/amm/exit',
         headers: headers,
         data: data,
+        baseURL:SERVER_URL
     });
 
     return response['data'];
 }
 
-async function submitOrderToLightcone(data, apiKey) {
+async function submitOrder(data, apiKey) {
     const headers = {
         'X-API-KEY': apiKey,
     };
@@ -174,6 +181,7 @@ async function submitOrderToLightcone(data, apiKey) {
         url: '/api/v3/order',
         headers: headers,
         data,
+        baseURL:SERVER_URL
     });
 }
 
@@ -188,5 +196,5 @@ module.exports = {
     getAmmMarketUserFeeRates,
     joinAmmPool,
     exitAmmPool,
-    submitOrderToLightcone
+    submitOrder
 };

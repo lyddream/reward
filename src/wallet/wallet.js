@@ -26,35 +26,41 @@ module.exports =  class Wallet {
   }
 
   // 3.6
-  async ammJoin(data) {
+  ammJoin(data) {
     data['chainId'] = config.getChainId();
     return  this.ammJoinWithoutDataStructure(data);
   }
 
-  async  ammJoinWithoutDataStructure(data) {
+  ammJoinWithoutDataStructure(data) {
     const hash = exchange.getAmmJoinEcdsaSig(data);
-    const result = await ethSig.ethSignHash(hash,this.ecdsaKey);
+    const result = ethSig.ethSignHash(hash,this.ecdsaKey);
     console.log('ammJoin_3_6 result', fm.toHex(result));
 
     return {
-      ecdsaSig: fm.toHex(result),
+      ...data,
+      ecdsaSig: fm.toHex(result) + '02',
     };
   }
 
-  async  ammExit(data) {
+  ammExit(data) {
     data['chainId'] = config.getChainId()
-    return await this.ammExitWithoutDataStructure(data);
+    return this.ammExitWithoutDataStructure(data);
   }
 
-  async  ammExitWithoutDataStructure(data) {
+  ammExitWithoutDataStructure(data) {
     const hash = exchange.getAmmExitEcdsaSig(data);
     console.log('ammExit hash', hash);
-    const result =  await ethSig.ethSignHash(hash,this.ecdsaKey);
+    const result =  ethSig.ethSignHash(hash,this.ecdsaKey);
     console.log('ammExit_3_6 result', fm.toHex(result));
 
     return {
-      ecdsaSig: fm.toHex(result),
+      ...data,
+      ecdsaSig: fm.toHex(result) + '02',
     };
+  }
+
+  submitOrder(order) {
+    return exchange.signOrder(order, this.keyPair);
   }
 
 };
