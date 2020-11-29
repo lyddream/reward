@@ -5,11 +5,19 @@ const asyncMap = require('async/mapLimit');
 
 const config = require("../../src/config")
 const exchange= "0x7489DE8c7C1Ee35101196ec650931D7bef9FdAD2"
+// const ammConfig = {
+//     address : "0x1ff8349Bb0eFD8Ad9c13586547402B7487C49e34",
+//     name:"LRC-ETH-Pool-3",
+//     tokens:[1,0],
+//     poolToken:3
+// }
+
 const ammConfig = {
-    address : "0x1ff8349Bb0eFD8Ad9c13586547402B7487C49e34",
-    name:"LRC-ETH-Pool-3",
-    tokens:[1,0],
-    poolToken:3
+    name: "GTO-ETH-Pool-3",
+    market: "LP-GTO-ETH",
+    address: "0x6dffbB9F9cE41F95dd5c6Ee9E8Ae69D07288740B",
+    tokens: [2, 0],
+    poolToken: 4
 }
 
 const accountConfig = {
@@ -108,8 +116,6 @@ async function submitRequest(request){
 
 
 async function recover() {
-  let results = []
-
   return await asyncMap(requests,1,async (request,key) =>{
        try{
            await submitRequest(request);
