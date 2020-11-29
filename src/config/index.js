@@ -34,8 +34,12 @@ function toWEI(symbol, value, tokens) {
     .toFixed(0);
 }
 
+function getChainId() {
+ return  config.chainId
+}
 
 module.exports = {
     getServer,
-    getServer36
+    getServer36,
+    getChainId
 };

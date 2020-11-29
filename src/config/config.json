@@ -3,5 +3,6 @@
   "defaultGasLimit": "0x7a120",
   "infuraId":"833427e71c094c4fa31d42f93fc87ba3",
   "server":"https://api3.loopring.io",
-  "server_36": "https://api3.loopring.io"
+  "server_36": "https://api3.loopring.io",
+  "chainId": 1337
 }

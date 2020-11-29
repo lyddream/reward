@@ -68,9 +68,7 @@ async function getStorageId(accountId, tokenSId, apiKey) {
     return response['data'];
 }
 
-import request from '../common/request';
-
-export async function getAmmMarkets() {
+async function getAmmMarkets() {
     const data = {};
 
     const response = await request({
@@ -82,7 +80,7 @@ export async function getAmmMarkets() {
     return response['data'];
 }
 
-export async function getAmmSnapshots() {
+async function getAmmSnapshots() {
     const data = {};
 
     const response = await request({
@@ -94,7 +92,7 @@ export async function getAmmSnapshots() {
     return response['data'];
 }
 
-export async function getAmmSnapshot(poolAddress) {
+async function getAmmSnapshot(poolAddress) {
     const params = {
         poolAddress,
     };
@@ -110,7 +108,7 @@ export async function getAmmSnapshot(poolAddress) {
     return response['data'];
 }
 
-export async function getAmmMarketUserFeeRates(accountId, market, apiKey) {
+async function getAmmMarketUserFeeRates(accountId, market, apiKey) {
     const params = {
         accountId,
         market,
@@ -133,7 +131,7 @@ export async function getAmmMarketUserFeeRates(accountId, market, apiKey) {
 }
 
 // /api/v2/amm/join
-export async function joinAmmPool(data, ecdsaSig, apiKey) {
+async function joinAmmPool(data, ecdsaSig, apiKey) {
     const headers = {
         'X-API-KEY': apiKey,
         'X-API-SIG': ecdsaSig + '02',
@@ -150,7 +148,7 @@ export async function joinAmmPool(data, ecdsaSig, apiKey) {
 }
 
 // /api/v2/amm/exit
-export async function exitAmmPool(data, ecdsaSig, apiKey) {
+async function exitAmmPool(data, ecdsaSig, apiKey) {
     const headers = {
         'X-API-KEY': apiKey,
         'X-API-SIG': ecdsaSig + '02',
@@ -166,11 +164,29 @@ export async function exitAmmPool(data, ecdsaSig, apiKey) {
     return response['data'];
 }
 
+async function submitOrderToLightcone(data, apiKey) {
+    const headers = {
+        'X-API-KEY': apiKey,
+    };
 
+    return await request({
+        method: 'POST',
+        url: '/api/v3/order',
+        headers: headers,
+        data,
+    });
+}
 
 module.exports = {
     getAccount,
     submitTransfer,
     getTokens,
-    getStorageId
+    getStorageId,
+    getAmmMarkets,
+    getAmmSnapshots,
+    getAmmSnapshot,
+    getAmmMarketUserFeeRates,
+    joinAmmPool,
+    exitAmmPool,
+    submitOrderToLightcone
 };

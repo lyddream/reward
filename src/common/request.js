@@ -10,7 +10,7 @@ const SERVER_URL = config.getServer();
  * @returns {Promise}
  */
 module.exports = function(options, parse){
-  options.timeout = options.timeout || 3000;
+  options.timeout = options.timeout || 20000;
   options.baseURL = options.baseURL || SERVER_URL;
 
   return axios(options).then((response) => {

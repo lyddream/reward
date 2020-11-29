@@ -7,6 +7,7 @@ const asyncMap = require('async/mapLimit');
 
 const rewardArray = []
 
+
 const excludeArray = [];
 const apiKey = "VnocvyZJ64hOh3StH5fUgelIoAWtUYLu8OKTFL2ItoAzEfmgU8kfmbZAZ6ymCxz8";
 const keyPair = {
