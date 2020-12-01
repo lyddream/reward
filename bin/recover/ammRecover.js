@@ -44,7 +44,8 @@ const requests=[
         validUntil:Math.ceil(new Date().getTime() / 1000) + 3600 * 24 * 60,
         name:ammConfig.name,
         chainId: config.getChainId(),
-        poolAddress:ammConfig.address
+        poolAddress:ammConfig.address,
+        exchange:exchange
         }
     },
     // {
@@ -66,6 +67,7 @@ const requests=[
     // {
     //     type:"exit",
     //     data:{
+    //         exchange:exchange,
     //         owner:accountConfig.address,
     //         poolAddress:ammConfig.address,
     //         burnAmount: "",
@@ -89,15 +91,15 @@ async function submitRequest(request){
                 const joinStorageIDs = [storageId0.offchainId, storageId1.offchainId];
                 const _join = request.data
                 _join.joinStorageIDs = joinStorageIDs
-                const join = wallet.ammJoin(data)
+                const join = wallet.ammJoin(_join)
                 console.log("join",join);
-                 await joinAmmPool(data, join.ecdsaSig, accountConfig.apiKey)
+                 await joinAmmPool(join, join.ecdsaSig, accountConfig.apiKey)
                 break;
             case "order":
                 const storageId = await getStorageId(accountConfig.accountId, request.data.tokenSId, accountConfig.apiKey);
                 const _order = request.data
                 _order.storageId = storageId.orderId
-                const order = wallet.submitOrder(data)
+                const order = wallet.submitOrder(_order)
                 await submitOrder(order, accountConfig.apiKey)
 
                 break;
@@ -105,7 +107,7 @@ async function submitRequest(request){
                 const burnStorageId = await getStorageId(accountConfig.accountId,ammConfig.poolToken, accountConfig.apiKey);
                 const _exit = request.data
                 _exit.burnStorageID = burnStorageId.offchainId
-                const exit = wallet.ammExit(data)
+                const exit = wallet.ammExit(_exit)
                 await exitAmmPool(exit, exit.ecdsaSig,accountConfig.apiKey)
 
                 break;
@@ -121,7 +123,6 @@ async function recover() {
            await submitRequest(request);
            return 1
         }catch(e){
-           console.error(e)
            console.log(`failed to submit ${request.type}`)
            throw e
        }

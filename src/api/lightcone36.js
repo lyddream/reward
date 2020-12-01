@@ -148,6 +148,7 @@ async function joinAmmPool(data, ecdsaSig, apiKey) {
         url: '/api/v2/amm/join',
         headers: headers,
         data: data,
+        baseURL:SERVER_URL
     });
 
     return response['data'];

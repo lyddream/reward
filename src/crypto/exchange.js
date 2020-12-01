@@ -100,16 +100,13 @@ function getAmmJoinEcdsaTypedData(data) {
         message: message,
     };
 
-    console.log('typedData', typedData);
     return typedData;
 }
 
 
 function getAmmJoinEcdsaSig(data) {
-    console.log('getAmmJoinEcdsaSig', data);
     const typedData = getAmmJoinEcdsaTypedData(data);
     const hash = sigUtil.TypedDataUtils.sign(typedData);
-    console.log('hash', fm.toHex(hash));
     return fm.toHex(hash);
 }
 
@@ -149,15 +146,12 @@ function getAmmExitEcdsaTypedData(data) {
         message: message,
     };
 
-    console.log('typedData', typedData);
     return typedData;
 }
 
 function getAmmExitEcdsaSig(data) {
-    console.log('getAmmExitEcdsaSig', data);
     const typedData = getAmmExitEcdsaTypedData(data);
     const hash = sigUtil.TypedDataUtils.sign(typedData);
-    console.log('hash', fm.toHex(hash));
     return fm.toHex(hash);
 }
 
@@ -184,7 +178,6 @@ function signOrder(_order, keyPair) {
         order.maxFeeBips,
         order.fillAmountBOrS ? 1 : 0,
     ];
-    console.log('Calculate hash inputs', inputs);
 
     order.hash = hasher(inputs).toString(10);
 
@@ -211,8 +204,6 @@ function setupOrder(order) {
 
     order.feeBips =
         order.feeBips !== undefined ? order.feeBips : order.maxFeeBips;
-
-    console.log('setupOrder', order);
 
     // Sign the order
     return order;

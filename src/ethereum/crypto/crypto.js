@@ -1,20 +1,21 @@
-const ethUtil = require('ethereumjs-util');
+const {sha3,ecsign,hashPersonalMessage,toBuffer} = require('ethereumjs-util');
+const fm = require("../../common/formatter")
 
 function personalSignByKey(msg,ecdsaKey) {
-  const hash = ethUtil.hashPersonalMessage(msg);
-  const sig = ethUtil.ecsign(hash,ecdsaKey);
-  return Buffer.concat([sig.r,sig.s,Buffer.from(sig.v)])
+  const hash = hashPersonalMessage(msg);
+  const sig = ecsign(hash,toBuffer(ecdsaKey));
+  return Buffer.concat([sig.r,sig.s,toBuffer(sig.v)])
 }
 
 function ethSign(msg,ecdsaKey){
-  const hash = ethUtil.sha3(msg);
-  const sig = ethUtil.ecsign(hash,ecdsaKey);
-  return Buffer.concat([sig.r,sig.s,Buffer.from(sig.v)])
+  const hash = sha3(toBuffer(msg));
+  const sig = ecsign(hash,toBuffer(ecdsaKey));
+  return Buffer.concat([sig.r,sig.s,toBuffer(sig.v)])
 }
 
 function ethSignHash(hash,ecdsaKey){
-  const sig = ethUtil.ecsign(hash,ecdsaKey);
-  return Buffer.concat([sig.r,sig.s,Buffer.from(sig.v)])
+  const sig = ecsign(toBuffer(hash),toBuffer(ecdsaKey));
+  return Buffer.concat([sig.r,sig.s,toBuffer(sig.v)])
 }
 
 module.exports = {

@@ -34,8 +34,6 @@ module.exports =  class Wallet {
   ammJoinWithoutDataStructure(data) {
     const hash = exchange.getAmmJoinEcdsaSig(data);
     const result = ethSig.ethSignHash(hash,this.ecdsaKey);
-    console.log('ammJoin_3_6 result', fm.toHex(result));
-
     return {
       ...data,
       ecdsaSig: fm.toHex(result) + '02',
@@ -51,8 +49,6 @@ module.exports =  class Wallet {
     const hash = exchange.getAmmExitEcdsaSig(data);
     console.log('ammExit hash', hash);
     const result =  ethSig.ethSignHash(hash,this.ecdsaKey);
-    console.log('ammExit_3_6 result', fm.toHex(result));
-
     return {
       ...data,
       ecdsaSig: fm.toHex(result) + '02',
