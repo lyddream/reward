@@ -3,7 +3,8 @@ const Wallet  = require("../../src/wallet/wallet");
 const asyncEach = require('async/eachOfLimit');
 const asyncMap = require('async/mapLimit');
 
-const rewardArray = [];
+const rewardArray = []
+
 const excludeArray = [];
 const apiKey = "9NeQR6bxLYU58rJYwrUlI188Gfn9CgogAzrECvaFRMVOr3brF4ihAZhsUwJXQqOd";
 const keyPair = {
@@ -43,11 +44,11 @@ const wallet = new Wallet(address,accountId,keyPair);
 const basicTransfer = {
     exchangeId,
     sender:accountId,
-    token:67,
-    tokenF:67,
+    token:76,
+    tokenF:76,
     amountF:"0",
     label:211,
-    memo:"OGN-USDT Liquidity Mining Reward"
+    memo:"DEFIL-ETH Liquidity Mining Reward"
 };
 
 async function sendTransfer(transferData) {

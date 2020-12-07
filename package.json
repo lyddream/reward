@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "reward31": "node ./bin/rewardByAmount",
+    "reward31": "node ./bin/31/reward.js",
     "reward36": "node ./bin/36/reward.js",
     "recoverAmm": "node ./bin/recover/ammRecover.js"
   },

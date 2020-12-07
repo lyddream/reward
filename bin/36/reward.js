@@ -1,11 +1,12 @@
 const {getStorageId,submitTransfer} = require("../../src/api/lightcone36");
 const Wallet  = require("../../src/wallet/wallet");
-const asyncEach = require('async/eachOfLimit');
 const asyncMap = require('async/mapLimit');
 
 //{address:"0xa675dafa4d6eb83537f9cec33d8adfd56365431a",amount:"5266203717660600320"}
 
-const rewardArray = []
+const rewardArray = [];
+
+
 const excludeArray = [];
 const apiKey = "VnocvyZJ64hOh3StH5fUgelIoAWtUYLu8OKTFL2ItoAzEfmgU8kfmbZAZ6ymCxz8";
 const keyPair = {
