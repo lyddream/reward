@@ -5,8 +5,7 @@ const  BigNumber = require("bignumber.js");
 
 //{address:"0xa675dafa4d6eb83537f9cec33d8adfd56365431a",amount:"5266203717660600320"}
 
-const rewardArray = [{"address":"0x2316c9c98be2b5bc4d11fff69f8e488fe14d5694","amount":"2.747783601460152e17"},{"address":"0xa793df5e3e118dd1d74383d0a4e980ec1c707de4","amount":"525887287354853"},{"address":"0x3ee954a4bd5b65f0df1b9f596bfb11a6111ebc8b","amount":"1.0315295867173937e19"},{"address":"0xf435b54ebbe3be95d9dc1ed75b4e53a0f5265efa","amount":"8.327976739115596e19"},{"address":"0xb116e8ac82beca406b5a6175d0cd00d1bb3cb3bb","amount":"8.741431358197641e17"},{"address":"0xa3ac9988a89a35641e125a44105f96f787818a22","amount":"3.642180488531209e17"},{"address":"0x9dbba345d5d8e0fa3a054433a5fba7bef1166391","amount":"5.0733351359011344e20"},{"address":"0x9d8d98986b2301c685bfe6d965c4995461116996","amount":"7.327243232261051e16"},{"address":"0xfcd95b368e059ffbef0f4c134323b7320310b90f","amount":"2.9074647114981992e20"},{"address":"0xeb2efa25a92aea369facff87635ff628c013c65e","amount":"2.244999557852026e18"},{"address":"0xff6f7b2afdd33671503705098dd3c4c26a0f0705","amount":"2.5032408754407795e17"},{"address":"0x0089cb1465b4d5e93c0d196f373de72748668dfd","amount":"1.4544804351794747e18"},{"address":"0x90a699d2b6eb0f7c3170d502c0bdf386f7faf058","amount":"1.474529021574069e15"},{"address":"0x6a1902bc0141cda8c7038439538785cfb8231080","amount":"7.339427502620248e17"},{"address":"0x743e6f37c51edc071a6537ae42f1cfd8c3834b45","amount":"3.241695512216825e15"},{"address":"0x2a00304f0a269c2e2100f311a3f9b50cde95f475","amount":"5.048587123534792e19"},{"address":"0xf8a57bb83967d21fd19caba32716dc7d855a0a7d","amount":"1.9729451818998803e17"},{"address":"0x900f944d142f164b9dbc4e91ab578cc9c9a0916d","amount":"5.783770984422751e18"},{"address":"0x3fb6ec2461e3ee1ee79958a0a241844854635c33","amount":"7.348324102170006e18"},{"address":"0x175741f03b05ae7318dee8426356c39db92a0774","amount":"5.46683418709476e16"},{"address":"0xff67a86a01c7c90b0c3f3a26b65c25f432ec1751","amount":"4.206671635336248e16"},{"address":"0xc99edcb9941646b036934a290c9aef05d486adb0","amount":"2.829070210684476e18"},{"address":"0xd0554b8dc33b4be4bee98718a7b5f8009a67a6b7","amount":"1.8960526565997665e20"},{"address":"0xd22c8868509ef86da270f793a488d68fbd03a004","amount":"4.038729131462127e18"},{"address":"0x11111db2022d5127c0cff8df5d719f74a0f5c02c","amount":"1.5565242817062692e18"},{"address":"0x6e45310b69908a7490ebdbb66601462c8da6e46a","amount":"9.81145438585174e18"},{"address":"0x777227213304b829da1ab08ae8f06f9a82218228","amount":"2.1751580256000438e17"},{"address":"0x807061df657a7697c04045da7d16d941861caabc","amount":"1.3815990776282819e19"},{"address":"0x431dec52a66166a70916894aeb8066c09bc70aa1","amount":"3.569852152896029e19"},{"address":"0x752f6908716cB302c91d296Aa27d52aB271c43ab","amount":"4.029096057897816e19"},{"address":"0x4b69d0a077a19bd76a41b32d70f71b8c88ba2f0f","amount":"5.721834739487525e16"},{"address":"0x9f99055052067104879b6e655e17a8a795095905","amount":"4.570363486293632e16"},{"address":"0xdaf93a6a56aec45f7b23aebd531177cc531133ef","amount":"1.4134468570977377e18"},{"address":"0x525dc482960d34a4037fe7441039d751aab2dc0a","amount":"4.807501003589462e18"},{"address":"0x8c64a061bfc06869f2fe5975cf597e3e6e14da14","amount":"1.493170994432623e19"},{"address":"0x786442b0d64728221c511fae74d1c4a450a55379","amount":"5.214059165200347e18"},{"address":"0xa102ea62fa12fcdfcfaddfeab875703e10f520c6","amount":"1.0219396720320003e18"},{"address":"0x205530b7328ba64202ab33f89e5b75a2d9bc9580","amount":"1.2781944202615128e19"}]
-
+const rewardArray = [{"address":"0x38a76454ca9adc0e8150f6a5c97f729a481106db","amount":"5.583365580414902e19"},{"address":"0x7b3b1f252169ff83e3e91106230c36be672afde3","amount":"2.780402133546432e22"},{"address":"0x9dbba345d5d8e0fa3a054433a5fba7bef1166391","amount":"3.6231937241980865e22"},{"address":"0xff6f7b2afdd33671503705098dd3c4c26a0f0705","amount":"1.6200754720557142e22"},{"address":"0x0089cb1465b4d5e93c0d196f373de72748668dfd","amount":"3.8918672860343545e21"},{"address":"0x90a699d2b6eb0f7c3170d502c0bdf386f7faf058","amount":"6.787042830622724e16"},{"address":"0x743e6f37c51edc071a6537ae42f1cfd8c3834b45","amount":"2.7235030342564168e20"},{"address":"0x2a00304f0a269c2e2100f311a3f9b50cde95f475","amount":"1.6958744590539366e22"},{"address":"0x900f944d142f164b9dbc4e91ab578cc9c9a0916d","amount":"7.245278234167776e21"},{"address":"0x0783ab35326750c49f73d153064bee4bd99b77e6","amount":"8.838479055921263e21"},{"address":"0x8c64a061bfc06869f2fe5975cf597e3e6e14da14","amount":"2.024780890502657e21"},{"address":"0xdbaa0077617fddbed9d165ba2f83690d6634e665","amount":"3.6645798675762947e21"},{"address":"0x6734cbf4d0B5FDf92272a4CDa1591042F5Ca9d95","amount":"7.208334421767904e19"},{"address":"0x77999079448305d5f414da6805cd5751f4444f49","amount":"1.3641763090345474e19"},{"address":"0xa102ea62fa12fcdfcfaddfeab875703e10f520c6","amount":"1.2301573772573845e20"}]
 
 
 const excludeArray = [];
@@ -31,11 +30,11 @@ const basicTransfer = {
     payerId:accountId,
     payerAddr:address,
     payeeId:0,
-    token:175,
+    token:240,
     feeToken:1,
     maxFeeAmount:"0",
     validUntil:Math.ceil(new Date().getTime() / 1000) + 3600 * 24 * 60,
-    memo:"ORDER Reward:VSP-ETH"
+    memo:"ORDER Reward:BKT-USDT"
 };
 
 async function sendTransfer(transferData) {
@@ -92,7 +91,7 @@ async function sendRewards() {
 
     await asyncMap(rewardArray,1,async (i,key) =>{
         if(excludeArray.indexOf(i.address) === -1){
-            const actualAmount = new BigNumber(`${i.amount}`).minus(new BigNumber(fee).dividedBy(20))
+            const actualAmount = new BigNumber(`${i.amount}`).minus(new BigNumber(fee).times(10))
             if(actualAmount.isPositive()){
                 const transfer = wallet.sign36Transfer({
                     ...basicTransfer,
