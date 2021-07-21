@@ -5,8 +5,7 @@ const  BigNumber = require("bignumber.js");
 
 //{address:"0xa675dafa4d6eb83537f9cec33d8adfd56365431a",amount:"5266203717660600320"}
 
-const rewardArray = [{"address":"0x38a76454ca9adc0e8150f6a5c97f729a481106db","amount":"5.583365580414902e19"},{"address":"0x7b3b1f252169ff83e3e91106230c36be672afde3","amount":"2.780402133546432e22"},{"address":"0x9dbba345d5d8e0fa3a054433a5fba7bef1166391","amount":"3.6231937241980865e22"},{"address":"0xff6f7b2afdd33671503705098dd3c4c26a0f0705","amount":"1.6200754720557142e22"},{"address":"0x0089cb1465b4d5e93c0d196f373de72748668dfd","amount":"3.8918672860343545e21"},{"address":"0x90a699d2b6eb0f7c3170d502c0bdf386f7faf058","amount":"6.787042830622724e16"},{"address":"0x743e6f37c51edc071a6537ae42f1cfd8c3834b45","amount":"2.7235030342564168e20"},{"address":"0x2a00304f0a269c2e2100f311a3f9b50cde95f475","amount":"1.6958744590539366e22"},{"address":"0x900f944d142f164b9dbc4e91ab578cc9c9a0916d","amount":"7.245278234167776e21"},{"address":"0x0783ab35326750c49f73d153064bee4bd99b77e6","amount":"8.838479055921263e21"},{"address":"0x8c64a061bfc06869f2fe5975cf597e3e6e14da14","amount":"2.024780890502657e21"},{"address":"0xdbaa0077617fddbed9d165ba2f83690d6634e665","amount":"3.6645798675762947e21"},{"address":"0x6734cbf4d0B5FDf92272a4CDa1591042F5Ca9d95","amount":"7.208334421767904e19"},{"address":"0x77999079448305d5f414da6805cd5751f4444f49","amount":"1.3641763090345474e19"},{"address":"0xa102ea62fa12fcdfcfaddfeab875703e10f520c6","amount":"1.2301573772573845e20"}]
-
+const rewardArray = [{"address":"0x900f944d142f164b9dbc4e91ab578cc9c9a0916d","tokenId":1,"amount":"2329300000000000000000"},{"address":"0xff6f7b2afdd33671503705098dd3c4c26a0f0705","tokenId":1,"amount":"1552900000000000000000"},{"address":"0x9dbba345d5d8e0fa3a054433a5fba7bef1166391","tokenId":1,"amount":"1035300000000000000000"},{"address":"0xa3ac9988a89a35641e125a44105f96f787818a22","tokenId":1,"amount":"862700000000000000000"},{"address":"0x743e6f37c51edc071a6537ae42f1cfd8c3834b45","tokenId":1,"amount":"718900000000000000000"},{"address":"0x4b69d0a077a19bd76a41b32d70f71b8c88ba2f0f","tokenId":1,"amount":"599100000000000000000"},{"address":"0xb116e8ac82beca406b5a6175d0cd00d1bb3cb3bb","tokenId":1,"amount":"499300000000000000000"},{"address":"0x90a699d2b6eb0f7c3170d502c0bdf386f7faf058","tokenId":1,"amount":"416000000000000000000"},{"address":"0xa102ea62fa12fcdfcfaddfeab875703e10f520c6","tokenId":1,"amount":"346700000000000000000"},{"address":"0x752f6908716cB302c91d296Aa27d52aB271c43ab","tokenId":1,"amount":"288900000000000000000"},{"address":"0x6a1902bc0141cda8c7038439538785cfb8231080","tokenId":1,"amount":"240800000000000000000"},{"address":"0x175741f03b05ae7318dee8426356c39db92a0774","tokenId":1,"amount":"200600000000000000000"},{"address":"0x7b3b1f252169ff83e3e91106230c36be672afde3","tokenId":1,"amount":"167200000000000000000"},{"address":"0xd0554b8dc33b4be4bee98718a7b5f8009a67a6b7","tokenId":1,"amount":"139300000000000000000"},{"address":"0x6223b014ebe343b386a57b83202a70a5b364bcd1","tokenId":1,"amount":"116100000000000000000"},{"address":"0x8c64a061bfc06869f2fe5975cf597e3e6e14da14","tokenId":1,"amount":"98600000000000000000"},{"address":"0xf435b54ebbe3be95d9dc1ed75b4e53a0f5265efa","tokenId":1,"amount":"80600000000000000000"},{"address":"0x9f99055052067104879b6e655e17a8a795095905","tokenId":1,"amount":"67200000000000000000"},{"address":"0xa793df5e3e118dd1d74383d0a4e980ec1c707de4","tokenId":1,"amount":"56000000000000000000"},{"address":"0x11111db2022d5127c0cff8df5d719f74a0f5c02c","tokenId":1,"amount":"46700000000000000000"},{"address":"0x0783ab35326750c49f73d153064bee4bd99b77e6","tokenId":1,"amount":"38900000000000000000"},{"address":"0x205530b7328ba64202ab33f89e5b75a2d9bc9580","tokenId":1,"amount":"32400000000000000000"},{"address":"0x3ee954a4bd5b65f0df1b9f596bfb11a6111ebc8b","tokenId":1,"amount":"27000000000000000000"},{"address":"0x786442b0d64728221c511fae74d1c4a450a55379","tokenId":1,"amount":"22500000000000000000"},{"address":"0xeb2efa25a92aea369facff87635ff628c013c65e","tokenId":1,"amount":"18800000000000000000"}];
 
 const excludeArray = [];
 const apiKey = "x870NDe02Ngsu03C3z04sJtHs4yJwTAjGw8GCXPqn4fNPc3ZIBLFVAZldznxLbxV";
@@ -30,11 +29,11 @@ const basicTransfer = {
     payerId:accountId,
     payerAddr:address,
     payeeId:0,
-    token:240,
+    token:1,
     feeToken:1,
     maxFeeAmount:"0",
     validUntil:Math.ceil(new Date().getTime() / 1000) + 3600 * 24 * 60,
-    memo:"ORDER Reward:BKT-USDT"
+    memo:"SWAP Reward:VSP-ETH"
 };
 
 async function sendTransfer(transferData) {
@@ -91,7 +90,7 @@ async function sendRewards() {
 
     await asyncMap(rewardArray,1,async (i,key) =>{
         if(excludeArray.indexOf(i.address) === -1){
-            const actualAmount = new BigNumber(`${i.amount}`).minus(new BigNumber(fee).times(10))
+            const actualAmount = new BigNumber(`${i.amount}`).minus(fee)
             if(actualAmount.isPositive()){
                 const transfer = wallet.sign36Transfer({
                     ...basicTransfer,
