@@ -5,7 +5,7 @@ const  BigNumber = require("bignumber.js");
 
 //{address:"0xa675dafa4d6eb83537f9cec33d8adfd56365431a",amount:"5266203717660600320"}
 
-const rewardArray = [{"address":"0x36558d19324a1af2236cbb506277b22f2182c352","amount":"45158164173788215920"},{"address":"0x8bb647e93587b27422920166d08c640161b6684d","amount":"110143336004271167976"},{"address":"0x469281431cedfc789279bc8e651706085bf3a2e3","amount":"4434681543803324737488"},{"address":"0x610d6670739068977789d9708e1e8354a53d586b","amount":"461461787749277961024"},{"address":"0xde57e6e65375a38faf744554d63739e5be09f88d","amount":"7572115384615224"},{"address":"0x866c521883bc8cb7c59769e2a06ef38cc685915e","amount":"219431116452986798544"},{"address":"0x74874b09e16e1bf3c116df3fa64ba6f29bd91c42","amount":"1709097832086858334488"},{"address":"0xc248f9b1451067d8c55296f256b51a25d5b7abd6","amount":"860791938212232453624"},{"address":"0x6504bbe7b222c360a7d0087ece417cad26d95662","amount":"12555480324073807754400"},{"address":"0xeead3e6ac0f1175731a38fbe2726f9dab6c769ae","amount":"358730773682328573144"},{"address":"0xe65f3930aa2cc8711ef0d8c2244978a7f4a66c6a","amount":"3537842223112460569848"},{"address":"0x36bf95fbd49a9bd3febe597f37a520695a285314","amount":"388776647079763833264"},{"address":"0xebc38a4c7e2c804088efd568058ed13713e7c6a3","amount":"1196245530626755252704"},{"address":"0xf7242166c7d324cd264d2a9f1ab2d72ce3b456c3","amount":"347128797186602323512"},{"address":"0x39dc119864c17968b9f06887678a90ef1942f442","amount":"957079549501404200400"},{"address":"0x7cf7d9ab22d62486d9c79585acd4841817ae68bc","amount":"133036333689455867568"},{"address":"0xc917d70fff17abd6ced60b77f0be6253de10ed26","amount":"892380341880322951680"},{"address":"0x885c511aa5c6a3f7fb50fb803e749eae594c669a","amount":"12713675213674944"},{"address":"0xed7868453591d458fe1df133be070bc9295ee4ba","amount":"68227221331907384712"},{"address":"0xd9c6c434e7ec14021e49916cd3d845a87a39f89a","amount":"302472293447287031424"},{"address":"0xdaa9a1db7cd436121f03ef898642b533dc89672e","amount":"114630266203701272232"},{"address":"0xeb42d02be9ed6c3b7e57ea3466a8b29ac80323d8","amount":"126557500890310705848"},{"address":"0xbed382f152b3ec36109f554b3642e7873d706e2f","amount":"103933110754983550416"},{"address":"0xe42423f4dae6f59820873e78fb5f38ed1c295b64","amount":"1026118856837585072160"},{"address":"0xa102ea62fa12fcdfcfaddfeab875703e10f520c6","amount":"307060122863241350064"}]
+const rewardArray = [];
 
 
 const excludeArray = [];
@@ -30,11 +30,11 @@ const basicTransfer = {
     payerId:accountId,
     payerAddr:address,
     payeeId:0,
-    token:217,
+    token:240,
     feeToken:1,
     maxFeeAmount:"0",
     validUntil:Math.ceil(new Date().getTime() / 1000) + 3600 * 24 * 60,
-    memo:"AMM Reward:BCDT-ETH"
+    memo:"AMM Reward:BKT-USDT"
 };
 
 async function sendTransfer(transferData) {
@@ -91,7 +91,7 @@ async function sendRewards() {
 
     await asyncMap(rewardArray,1,async (i,key) =>{
         if(excludeArray.indexOf(i.address) === -1){
-            const actualAmount = new BigNumber(`${i.amount}`).minus(new BigNumber(fee).times(2))
+            const actualAmount = new BigNumber(`${i.amount}`).minus(new BigNumber(fee).times(10))
             if(actualAmount.isPositive()){
                 const transfer = wallet.sign36Transfer({
                     ...basicTransfer,
