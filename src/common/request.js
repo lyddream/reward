@@ -26,7 +26,6 @@ function parseResponse(response) {
   const data = response['data'];
   const resultInfo = data['resultInfo'];
   const errorData = data['error'];
-    console.log(JSON.stringify(data));
   // Some API endpoints in the old versions don't have resultInfo.
   if (resultInfo) {
     const code = resultInfo['code'];

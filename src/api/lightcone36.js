@@ -22,6 +22,7 @@ async function getAccount(owner) {
 async function submitTransfer(transfer, apiKey) {
     const headers = {
         'X-API-KEY': apiKey,
+        feeVersion: 'v2'
     };
 
     const response = await request({
@@ -175,6 +176,7 @@ async function exitAmmPool(data, ecdsaSig, apiKey) {
 async function submitOrder(data, apiKey) {
     const headers = {
         'X-API-KEY': apiKey,
+        feeVersion: 'v2',
     };
 
     return await request({
@@ -185,6 +187,47 @@ async function submitOrder(data, apiKey) {
         baseURL:SERVER_URL
     });
 }
+
+async function getExchangeInfo() {
+    const data = {};
+
+    const response = await request({
+        method: 'GET',
+        url: '/api/v2/exchange/info',
+        data,
+        baseURL:SERVER_URL
+    });
+
+    return response['data'];
+}
+
+async function getOffChainFee(
+    accountId,
+    requestType,
+    tokenSymbol,
+    amount,
+    apiKey
+) {
+    const params = {
+        accountId,
+        requestType,
+        tokenSymbol,
+        amount,
+    };
+    const headers = {
+        'X-API-KEY': apiKey,
+    };
+    const response = await request({
+        method: 'GET',
+        url: '/api/v2/user/offchainFee',
+        headers: headers,
+        params,
+        baseURL:SERVER_URL
+    });
+
+    return response['data'];
+}
+
 
 module.exports = {
     getAccount,
@@ -197,5 +240,7 @@ module.exports = {
     getAmmMarketUserFeeRates,
     joinAmmPool,
     exitAmmPool,
-    submitOrder
+    submitOrder,
+    getExchangeInfo,
+    getOffChainFee
 };

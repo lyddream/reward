@@ -3,13 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "reward31": "node ./bin/31/reward.js",
-    "reward36": "node ./bin/36/reward.js",
+    "reward": "node ./bin/36/reward.js",
     "recoverAmm": "node ./bin/recover/ammRecover.js"
   },
   "dependencies": {
     "async": "^3.2.0",
-    "axios": "^0.19.0",
+    "axios": "0.21.1",
     "bignumber.js": "9.0.0",
     "blake-hash": "2.0.0",
     "blake2b": "^2.1.3",

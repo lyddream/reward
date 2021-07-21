@@ -4,6 +4,6 @@
   "infuraId":"833427e71c094c4fa31d42f93fc87ba3",
   "server":"https://api.loopring.io",
   "dev": "http://a633f2c7cbc784acab5edf527374b6fe-159245920.us-east-2.elb.amazonaws.com",
-  "server_36": "https://api3.loopring.io",
+  "server_36": "https://api.loopring.network",
   "chainId": 1337
 }
