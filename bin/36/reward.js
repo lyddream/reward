@@ -1,11 +1,11 @@
 const {getStorageId,submitTransfer,getOffChainFee,getExchangeInfo} = require("../../src/api/lightcone36");
 const Wallet  = require("../../src/wallet/wallet");
 const asyncMap = require('async/mapLimit');
-const  BigNumber = require("bignumber.js");
+const BigNumber = require("bignumber.js");
 
 //{address:"0xa675dafa4d6eb83537f9cec33d8adfd56365431a",amount:"5266203717660600320"}
 
-const rewardArray = [];
+const rewardArray = [[{"address":"0xd3b72f5a99458f62d9a9cd08c24fbcd0abc899f3","amount":"7000000000000000000000"},{"address":"0x95d917c6f72faeac914e1f27e1c84767029ebace","amount":"7000000000000000000000"},{"address":"0x66677777228ee3737f7d5d3a4ad494ec90700696","amount":"7000000000000000000000"},{"address":"0xff6f7b2afdd33671503705098dd3c4c26a0f0705","amount":"7000000000000000000000"},{"address":"0x743e6f37c51edc071a6537ae42f1cfd8c3834b45","amount":"7000000000000000000000"},{"address":"0xb04D6d89cfdC1E2146681CcBa37e5E587CFd84Dc","amount":"7000000000000000000000"},{"address":"0x79ecdf37b1e64c50ba130b0dd236191475fc6f5d","amount":"7000000000000000000000"},{"address":"0xa3ac9988a89a35641e125a44105f96f787818a22","amount":"7000000000000000000000"},{"address":"0x38a76454ca9adc0e8150f6a5c97f729a481106db","amount":"7000000000000000000000"},{"address":"0xb1be7eceba2189a95d0eb649288e4e12faf7676a","amount":"7000000000000000000000"}]];
 
 const excludeArray = [];
 const apiKey = "x870NDe02Ngsu03C3z04sJtHs4yJwTAjGw8GCXPqn4fNPc3ZIBLFVAZldznxLbxV";
@@ -29,11 +29,11 @@ const basicTransfer = {
     payerId:accountId,
     payerAddr:address,
     payeeId:0,
-    token:1,
+    token:227,
     feeToken:1,
     maxFeeAmount:"0",
     validUntil:Math.ceil(new Date().getTime() / 1000) + 3600 * 24 * 60,
-    memo:"ORDER Reward:LRC-USDC"
+    memo:"DPR Reward"
 };
 
 async function sendTransfer(transferData) {
@@ -90,7 +90,7 @@ async function sendRewards() {
 
     await asyncMap(rewardArray,1,async (i,key) =>{
         if(excludeArray.indexOf(i.address) === -1){
-            const actualAmount = new BigNumber(`${i.amount}`).minus(fee)
+            const actualAmount = new BigNumber(`${i.amount}`)
             if(actualAmount.isPositive()){
                 const transfer = wallet.sign36Transfer({
                     ...basicTransfer,
