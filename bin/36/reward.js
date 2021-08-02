@@ -91,7 +91,7 @@ async function sendRewards() {
 
     await asyncMap(rewardArray,1,async (i,key) =>{
         if(excludeArray.indexOf(i.address) === -1){
-            const actualAmount = new BigNumber(`${i.amount}`)
+            const actualAmount = new BigNumber(`${i.amount}`).minus(fee)
             if(actualAmount.isPositive()){
                 const transfer = wallet.sign36Transfer({
                     ...basicTransfer,
